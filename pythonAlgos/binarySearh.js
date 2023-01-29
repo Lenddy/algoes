@@ -10,7 +10,6 @@ const binary=(val,arr)=>{ //val == value to be found//arr= array in witch the va
     let lower = 0 ; //lowest point(value) in the array
     let highest = arr.length-1; //highest point(value) in the array 
     while(lower <= highest){ //we are going to keep iterating as long as the lower point is lower than the highest point 
-        
         console.log("try")
         const middle =  lower + Math.floor(highest-lower / 2) //getting the middle number in the array the value in the middle 
         if(val === arr[middle]){ //checking if the value in the middle of the array  is === to the value  that we are looking for
@@ -28,8 +27,7 @@ const binary=(val,arr)=>{ //val == value to be found//arr= array in witch the va
     return "not found", -1 //this means that the value was not in the arr or could not be found
 }
 
-console.log(binary(10,[1,2,3,4,5,6,7,8,9,10,11]))
-
+console.log(binary(4,[1,2,3,4,5,6,7,8,9,10,11]))
 
 
 
