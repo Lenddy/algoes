@@ -1,0 +1,27 @@
+objects
+
+cosnt obj ={}// create
+
+obj.keyName/obj["keyName"] = value // to add
+    time complexity (constant) o(1)
+
+delete obj.keyName/obj["keyName"]// to delete a key and value
+    time complexity (constant) o(1)
+
+console.log(obj.keyName/obj["keyName"]) // to log value
+    time complexity (constant) o(1)
+
+you can have functions as values
+
+
+methods
+
+object.keys() //  array of all the keys
+    time complexity (linear) o(n)
+
+object.values() // array of all the value
+    time complexity (linear) o(n)
+
+
+object.entries //array of all the key:value pairs
+    time complexity (linear) o(n)

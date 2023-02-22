@@ -1,0 +1,33 @@
+ARRAY
+
+basic array methods
+
+1.push() //to add to the last index
+    time complexity (constant) o(1)
+
+2.unshift() //to add to the first index
+    time complexity (linear) o(n)
+
+3.pop() //to delete the last index
+    time complexity (constant) o(1)
+
+4.shift() //to delete the first index
+    time complexity (linear) o(n)
+
+
+operations
+creates a new
+
+all time complexity (linear) o(n)
+
+.map() // creates a new array from calling a function for every array element
+
+.filter()// creates a new array filled with elements that pass a test provided by a function.
+
+.reduce()// executes a reducer function for array element.
+
+.concat()// joins two or more strings.
+
+.slice()// selects from a given start, up to a (not inclusive) given end
+
+.splice()// adds and/or removes array elements, method overwrites the original array

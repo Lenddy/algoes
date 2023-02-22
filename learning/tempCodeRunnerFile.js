@@ -1,1 +1,0 @@
-console.log(FibonacciRecursive(6)) //output => 8
