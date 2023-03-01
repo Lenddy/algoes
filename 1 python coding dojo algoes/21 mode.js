@@ -11,17 +11,25 @@ const mode = arr =>{
     const dict ={};
     const newArr = []
     for(let item of arr){
-        dict[item] = (dict[item] || 0) +1 //check if false works's latter
+        dict[item] = (dict[item] || false) +1 //check if false works's latter
     }
     let highest = Math.max(...Object.values(dict))
+    let bool = true
     for(let key in dict){
         if(dict[key] == highest){
             newArr.push(parseInt(key))
         }
+        else{
+            bool = false
+        }
     }
+    if(bool){
+        return []
+    }
+
     return newArr
 }
-console.log(mode([1,2,3,1,3]))
+console.log(mode([1,3,4,1,3]))
 
 
 
@@ -37,13 +45,19 @@ const mode2 = arr => {
     const dict = {};
     const newArr = [];
     for (item of arr) {
-        dict[item] = (dict[item] || 0) + 1;
+        dict[item] = (dict[item] || false) + 1;
     }
     let highest = Math.max(...Object.values(dict));
+    let bool = true
     for (let key in dict) {
         if (dict[key] === highest) {
             newArr.push(parseInt(key));
+        }else{
+            bool = false
         }
+    }
+    if(bool){
+        return []
     }
     if (newArr.length === 1 || highest === 1) {
         return newArr;
@@ -51,7 +65,7 @@ const mode2 = arr => {
     return newArr.sort((a, b) => a - b);
 };
 
-console.log(mode2([-1,2,3,-1,3,1]))
+console.log(mode2([-1,3,5,-1,3]))
 
 
 
@@ -84,3 +98,14 @@ const mode3 = arr => {
 
 
 console.log(mode3([1,2,3,1,3,1]))
+
+
+
+
+// const a ={}
+// console.log("a before",a)
+
+// a["hola"] = (a["hola"] || 1)+1
+// a["h"] = (a["h"] || "lenddy")+1
+
+// console.log("a after",a)
