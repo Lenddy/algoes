@@ -150,8 +150,11 @@ class LinkList{
         if(idx == undefined || idx == null ){
             idx = this.size
         }
-        if(idx <= idx){
+        if(idx <= 0){
             this.head = current.next
+            return
+        }if(idx >= this.size){
+            idx == this.size
         }else{
             while(count < idx){
                 count++
@@ -164,9 +167,11 @@ class LinkList{
 
     }
 
-
-
     //clear list
+    clearList(){
+        this.head = null
+        this.size = 0
+    }
 
     //print list
     printListData(){
@@ -180,8 +185,9 @@ class LinkList{
             console.log("______________")
             //we assign current to be the next node(head) 
             current =current.next;
-        }
-        console.log("no more nodes available")
+        }if(this.size == 0)console.log("there are no nodes available");
+
+        else console.log("no more nodes available");
         //log the size of the link list
         console.log("list size:",this.size)
     }
@@ -192,11 +198,12 @@ const ll = new LinkList();
 
 ll.insertFirst("node 1")
 ll.insertFirst("node 2")
-ll.insertFirst("node 3")
+ll.insertFirst("node 0")
 ll.insertLast("node 4")
-ll.insertAt("node3.5",2)
+ll.insertAt("node3.5",1)
 // ll.getAt(6)
-ll.removeAt(2)
+// ll.removeAt(0)
+// ll.clearList()
 ll.printListData()
 // console.log(ll
 
