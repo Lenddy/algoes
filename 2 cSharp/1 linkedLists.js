@@ -115,23 +115,34 @@ class SinglyLinkedList{
     }
 
 
-    removeBack(){
-        if(this.isEmpty()){
-            return this
-        }else{
-        let current = this.head;
-        let previous ;
-        let count = 0
-        while(count < this.size-1){
-            count++
-            previous = current
-            current = current.next
-        }
-        this.size--
-        previous.next = null
-        
+
+
+
+    removeBack() {
+        if (this.isEmpty()) {
+            return this;
+        } else if (this.size === 1) {
+            this.head = null;
+            this.size = 0;
+            return this;
+        } else {
+            let current = this.head;
+            let previous = null;
+            while (current.next !== null) {
+                previous = current;
+                current = current.next;
+            }
+    
+            this.tail = previous;
+            this.tail.next = null;
+            this.size--;
+            return this;
         }
     }
+    
+
+
+
 
 
     contains(val){
@@ -200,7 +211,7 @@ myList.insertAtFront(-1)
 myList.removeHead()
 myList.average()
 myList.removeBack()
-myList.contains(3)
+// myList.contains(3)
 
 
 myList.printListData()
