@@ -133,8 +133,6 @@ class SinglyLinkedList{
                 current = current.next;
             }
     
-            this.tail = previous;
-            this.tail.next = null;
             this.size--;
             return this;
         }
@@ -163,7 +161,97 @@ class SinglyLinkedList{
         }
     }
 
+    containsRecursive( val, current = this.head){
+        if(this.isEmpty() == true){
+            console.log("the list is empty")
+            return false
+        }if( current.data == val){
+            console.log(true,"list contains",val)
+            return true
+        }else if (current.next == null ){
+            console.log(false,"list does not contains",val)
+            return false
+        }
+            return this.containsRecursive(val,current.next)
+    }
 
+    getAny(val){
+        //if not empty loop over the notes
+        //the note.data that has the same value as as the value inputted 
+        ///sould be return 
+        //if the list does not contains more thatn one node return that note 
+
+        //if the value inputed is a negative int return the first node 
+
+        //if it is bigger than list of node return the las node 
+
+    }
+
+
+    secondToLast(){
+        if(this.isEmpty()){
+            console.log("list is empty")
+            return this
+        }
+
+        let current = this.head
+        let previous;
+        while(current.next !== null){
+            previous = current
+            current = current.next
+        }
+        console.log("second to last node is",previous.data)
+        return previous.data
+    }
+
+    removeVal(val){
+        if(this.isEmpty()){
+            console.log("list is empty")
+            return this
+        }
+        if(val == this.head.data){
+            this.removeHead()
+            return true
+        }else{
+        let current = this.head
+        let previous;
+        while(current.next !== null){
+            previous = current
+            current = current.next
+            if(current.data == val){
+                previous.next = current.next 
+                console.log(`node with the value of ${val} has ben remove`)
+                this.size--
+                return true
+            }
+        }
+    }
+    }
+
+    preEnd(newVal,targetVal){
+
+        if(this.isEmpty()){
+            console.log("list is empty")
+            return false
+        }
+        let current = this.head
+        let previous;
+        if(targetVal == current.data){
+            this.insertAtFront(newVal)
+            console.log("new node added before node with the value of",targetVal )
+            return true
+        }
+        while(current.next !== null){
+            previous = current
+            current = current.next
+            if(targetVal == current.data){
+                previous.next = new ListNode(newVal,previous.next)
+                this.size++
+                console.log("new node added before node with the value of",targetVal )
+                return true
+            }
+        }
+    }
     //!this is not part of the algo is a practice to se if you undertand 
     //come up whit a way that you can take a node name(head name) fined it and insert a new node in its .next and also in the new node that you just inserted you need to move the data from the previouse . next to the nex node  so basicaly if that node that you look for has data in its next property you need to get that data store itthan replace it with the new node to be inserted then in that node that you just inserted you need to put the data that you store in to its . next 
         insertAtNodeName(){}
@@ -210,8 +298,12 @@ myList.insertAtBack(3)
 myList.insertAtFront(-1)
 myList.removeHead()
 myList.average()
-myList.removeBack()
+// myList.removeBack()
 // myList.contains(3)
+myList.containsRecursive(1)
+myList.secondToLast()
+// myList.removeVal(1)
+myList.preEnd(1.5,0)
 
 
 myList.printListData()
