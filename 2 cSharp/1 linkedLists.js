@@ -296,7 +296,10 @@ class SinglyLinkedList{
     splitOnVal(val){
         if(this.isEmpty()){
             return this
-        }else{
+        }if(this.size == 1){
+            return this
+        }
+        else{
             let current = this.head
             let previous;
             let count = 0
@@ -304,6 +307,7 @@ class SinglyLinkedList{
                 previous = current
                 count++
                 console.log(count)
+                if(val == null)return this
                 if(val == previous.data){
                     const splittedList = new SinglyLinkedList().head = previous.next
                     // previous.nex = null
