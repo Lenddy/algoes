@@ -251,6 +251,7 @@ class SinglyLinkedList{
 
     //joins a pass in list to the end of  the curent list 
     concat(newList){
+        if(newList.isEmpty())return this
         if(this.isEmpty()){
             this.head =  newList.head
             console.log(this.head)
@@ -275,11 +276,8 @@ class SinglyLinkedList{
             return this
         }else{
             let current = this.head
-            let previous;
             let min = current;
             while(current.next !== null){
-                previous = current
-                // console.log(previous)
                 if(min.data  <  current.data){
                     min = current.next
                     break
