@@ -284,6 +284,7 @@ class SinglyLinkedList{
                 }
                 current = current.next
             }
+            if(min.data == this.head.data) return this
             let toAdd = min.data
             this.removeVal(min.data)
             this.insertAtFront(toAdd)
