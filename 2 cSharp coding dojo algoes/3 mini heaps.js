@@ -48,7 +48,36 @@ class MinHeap {
 		}
 
 		return this.heap;
-	} //[null,1,0]
+	}
+
+	deleteMin() {
+		if (this.heap.length === 1) {
+			return null;
+		}
+		if (this.heap.length === 2) {
+			return this.heap.pop();
+		}
+		let min = this.heap[1];
+		this.heap[1] = this.heap.pop();
+		let i = 1;
+		let left = i * 2;
+		let right = i * 2 + 1;
+		let minIdx = i;
+		while (
+			this.heap[left] &&
+			(this.heap[left] < this.heap[minIdx] ||
+				this.heap[right] < this.heap[minIdx])
+		) {
+			minIdx = this.heap[left] < this.heap[right] ? left : right;
+			let temp = this.heap[minIdx];
+			this.heap[minIdx] = this.heap[i];
+			this.heap[i] = temp;
+			i = minIdx;
+			left = i * 2;
+			right = i * 2 + 1;
+		}
+		return min;
+	}
 
 	/**
 	 * Logs the tree horizontally with the root on the left and the index in
@@ -84,5 +113,6 @@ mh.insert(4);
 // console.log(mh.top());
 
 console.log(mh.heap);
+mh.deleteMin();
 
 mh.printHorizontalTree();
