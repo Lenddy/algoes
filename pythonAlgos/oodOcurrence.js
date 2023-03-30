@@ -12,55 +12,49 @@ you should return the number with out a pair
 if there is only one number in the  array return that number
 */
 
-let = rf=
-const  frequency = (arr = [])=>{
-    let dic = {};
-    for(let i = 0; i < arr.length; i++){
-        let current = arr[i];
-        let repeated  = 0
-        if(arr.length == 0){
-            return {}
-        }
-        else{
-            for(let item of arr){
-                if(item == current){
-                    repeated ++
-                    dic[current] = repeated;
-                }
-            }
-        }
-    }
-    return dic;
-}
+// let = rf=
+const frequency = (arr = []) => {
+	let dic = {};
+	for (let i = 0; i < arr.length; i++) {
+		let current = arr[i];
+		let repeated = 0;
+		if (arr.length == 0) {
+			return {};
+		} else {
+			for (let item of arr) {
+				if (item == current) {
+					repeated++;
+					dic[current] = repeated;
+				}
+			}
+		}
+	}
+	return dic;
+};
 
+const oodOccurrence = (arr) => {
+	let dic = {};
+	for (let i = 0; i < arr.length; i++) {
+		let current = arr[i];
+		let repeated = 0;
+		if (arr.length == 0) {
+			return [];
+		} else if (arr.length == 1) {
+			return arr[0];
+		} else {
+			for (let item of arr) {
+				if (item == current) {
+					repeated++;
+					dic[current] = repeated;
+				}
+			}
+		}
+	}
+	for (key in dic) {
+		if (dic[key] % 2 == 1) {
+			return key;
+		}
+	}
+};
 
-const oodOccurrence = (arr)=>{
-    let dic = {};
-        for(let i = 0; i < arr.length; i++){
-            let current = arr[i];
-            let repeated  = 0
-            if(arr.length == 0 ){
-                return []
-            }
-            else if(arr.length == 1){
-                return arr[0]
-            }
-            else{
-                for(let item of arr){
-                    if(item == current){
-                        repeated ++
-                        dic[current] = repeated;
-                    }
-                }
-            }
-        }
-        for(key in dic){
-            if(dic[key] % 2 ==1){
-                return key
-            }
-        }
-    }
-
-
-
-console.log(oodOccurrence([1,1,3]))
+console.log(oodOccurrence([1, 1, 3]));
