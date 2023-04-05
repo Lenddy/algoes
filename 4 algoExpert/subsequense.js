@@ -7,11 +7,13 @@ const isValidSubsequence = (array, sequence) => {
 		}
 		if (pointer == sequence.length) {
 			isvalid = true;
-			break;
 		}
 	}
 	return isvalid;
 };
+// var ;
+// let ;
+// const
 
 console.log(isValidSubsequence([1, 2, 3, 4, 5, 6], [1, 6, 5]));
 console.log(isValidSubsequence([1, 2, 3, 4, 5, 6], [1, 3, 5]));
@@ -24,3 +26,6 @@ const isValidSubsequence2 = (array, sequence) => {
 
 console.log(isValidSubsequence2([1, 2, 3, 4, 5, 6], [1, 2, 5]));
 console.log(isValidSubsequence2([1, 2, 3, 4, 5, 6], [1, 6, 5]));
+
+let pointer;
+console.log(pointer);
